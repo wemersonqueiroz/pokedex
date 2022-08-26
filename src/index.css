@@ -142,12 +142,16 @@ i {
 
 .searchButton {
   position: absolute;
-  height: 10px;
-  width: 10px;
-  bottom: 13%;
-  right: 9%;
-  border-radius: 15px;
-  background-color: transparent;
+  height: 40px;
+  width: 40px;
+  bottom: 21%;
+  right: 7%;
+  background-color: #7c9f31;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  items-align: center;
+  border: solid;
 }
 
 /* div .pokemonName .pokemonId .pokemonHeight .pokemonWeight .pokemonType {

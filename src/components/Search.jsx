@@ -3,9 +3,9 @@ import { searchPokemon } from "../api"
 import pokedex from "../assets/pokedex.png"
 import pokemonLogo from "../assets/pokemon.png"
 const Search = () => {
-  const [search, setSearch] = useState("ditto")
+  const [search, setSearch] = useState("")
   const [pokemon, setPokemon] = useState()
-
+  const [pokemonImage, setPokemonImage] = useState()
   const onChangeHandler = event => {
     setSearch(event.target.value)
   }
@@ -14,6 +14,9 @@ const Search = () => {
     if (event.key === "Enter") {
       searchPokemon(search).then(data => {
         setPokemon(data)
+        setPokemonImage(
+          data.sprites.versions["generation-v"]["black-white"].animated.front_default
+        )
       })
     }
   }
@@ -60,7 +63,7 @@ const Search = () => {
               Type: {pokemon.types.map(type => type.type.name).join(", ")}
             </div>
             <div className="pokemonImage">
-              <img src={pokemon.sprites.front_default} alt="pokemon" />
+              <img src={pokemonImage} alt="pokemon" />
             </div>
           </>
         ) : (
@@ -72,3 +75,5 @@ const Search = () => {
 }
 
 export default Search
+                  // pokemon.sprites.versions.generation-v.black_and_white.animated
+              // <img src={pokemon.sprites.front_default.animated} 
